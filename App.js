@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import Header from './components/Header'
 import Contacts from './components/Contacts'
 import Form from './components/Form'
@@ -19,35 +19,42 @@ export default function App() {
         return item.id !== contactID
       }))
   }
-
+  
   const addPerson = (formValue) => {
-    const newId = Math.random()
-    setPeople([
-      ...people,
-      {
-        "id": newId,
-        "name": formValue.name,
-        "phoneNumber": formValue.phoneNumber
-      }
-    ])
+    console.log(!isNaN(formValue.name))
+    if (formValue.name.length >= 2 && isNaN(formValue.name)) {
+      const newId = Math.random()
+      setPeople([
+        {
+          "id": newId,
+          "name": formValue.name,
+          "phoneNumber": formValue.phoneNumber
+        },
+        ...people
+      ])
+    } else {
+      Alert.alert("Ooops!", "Enter a valid text that's longer than 2 characters.", [{text: "got it!", onPress: () => console.log("click")}]) 
+    }
   }
 
   return (
-    <View style={styles.container}>
-        <Header />
-        <View style={styles.content}>
-          <Form addPerson={addPerson}/>
-          <View style={styles.people}>
-            <FlatList 
-              keyExtractor={(item) => item.id}
-              data={people}
-              renderItem={({item}) =>
-                <Contacts item={item} deleteContacts={deleteContacts}/>
-              }
-            />
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <View style={styles.container}>
+          <Header />
+          <View style={styles.content}>
+            <Form addPerson={addPerson}/>
+            <View style={styles.people}>
+              <FlatList 
+                keyExtractor={(item) => item.id}
+                data={people}
+                renderItem={({item}) =>
+                  <Contacts item={item} deleteContacts={deleteContacts}/>
+                }
+              />
+            </View>
           </View>
-        </View>
-    </View>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 

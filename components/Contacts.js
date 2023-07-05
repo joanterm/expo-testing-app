@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 
 const Contacts = (props) => {
     const {item, deleteContacts} = props
