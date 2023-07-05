@@ -19,7 +19,7 @@ export default function App() {
         return item.id !== contactID
       }))
   }
-  
+
   const addPerson = (formValue) => {
     console.log(!isNaN(formValue.name))
     if (formValue.name.length >= 2 && isNaN(formValue.name)) {
@@ -39,11 +39,11 @@ export default function App() {
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <View style={styles.container}>
+      <View style={styles.mainContainer}>
           <Header />
-          <View style={styles.content}>
+          <View style={styles.contentContainer}>
             <Form addPerson={addPerson}/>
-            <View style={styles.people}>
+            <View style={styles.peopleContainer}>
               <FlatList 
                 keyExtractor={(item) => item.id}
                 data={people}
@@ -59,12 +59,16 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  mainContainer: {
     flex: 1,
     backgroundColor: '#fff',
   },
-  content: {
+  contentContainer: {
+    flex: 1,
     padding: 40
+  },
+  peopleContainer: {
+    flex: 1,
   }
 });
 
