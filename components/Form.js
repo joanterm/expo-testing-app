@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native'
+import { globalStyles } from "../styles/globalStyles"
 
 const Form = (props) => {
     const {addPerson} = props
@@ -19,7 +20,7 @@ const Form = (props) => {
     
     return ( 
         <View>
-            <Text>FORM</Text>
+            <Text style={globalStyles.textStyle}>FORM</Text>
             <TextInput
                 style={styles.input}
                 placeholder="Name"

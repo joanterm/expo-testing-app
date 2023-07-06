@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import { StyleSheet, Text, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native'
+import { useFonts } from 'expo-font'
+import * as SplashScreen from 'expo-splash-screen';
 import Header from './components/Header'
 import Contacts from './components/Contacts'
 import Form from './components/Form'
-import { useFonts } from 'expo-font'
-import * as SplashScreen from 'expo-splash-screen';
+import { globalStyles } from './styles/globalStyles'
 
 export default function App() {
   const [people, setPeople] = useState([
@@ -59,8 +60,7 @@ export default function App() {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.mainContainer}>
           <Header />
-          <Text style={{fontFamily: "Quicksand"}}>TESTING ANOTHER FONT</Text>
-          <Text style={{fontFamily: "Quicksand"}}>TESTING ANOTHER FONT</Text>
+          <Text style={globalStyles.textStyle}>TESTING</Text>
           <View style={styles.contentContainer}>
             <Form addPerson={addPerson}/>
             <View style={styles.peopleContainer}>
@@ -80,7 +80,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    fontFamily: "regular",
     flex: 1,
     backgroundColor: '#fff',
   },
