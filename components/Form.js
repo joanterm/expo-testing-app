@@ -20,7 +20,7 @@ const Form = (props) => {
     return ( 
         <View>
             <Text>FORM</Text>
-            <TextInput 
+            <TextInput
                 style={styles.input}
                 placeholder="Name"
                 onChangeText={(typedText) => handleChange("name", typedText)}
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderStyle: "solid",
         borderColor: "gray",
-        padding: 10
+        padding: 10,
     }
 });
  

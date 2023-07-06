@@ -1,8 +1,10 @@
-import { useState } from 'react'
-import { StyleSheet, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native'
+import { useEffect, useState } from 'react'
+import { StyleSheet, Text, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import Header from './components/Header'
 import Contacts from './components/Contacts'
 import Form from './components/Form'
+import { useFonts } from 'expo-font'
+import * as SplashScreen from 'expo-splash-screen';
 
 export default function App() {
   const [people, setPeople] = useState([
@@ -11,8 +13,24 @@ export default function App() {
     {"id": 3, "name": "Travis", "phoneNumber": "(333)-333-3333"},
     {"id": 4, "name": "Monica", "phoneNumber": "(444)-444-4444"},
     {"id": 5, "name": "Steve",  "phoneNumber": "(555)-555-5555"}   
-  ])
-  
+])
+  const [fontsLoaded] = useFonts({
+    "Quicksand": require('./assets/fonts/Quicksand-Regular.ttf')
+  })
+
+  useEffect(() => {
+    async function loadFonts() {
+      await SplashScreen.preventAutoHideAsync()
+    }
+    loadFonts()
+  }, [])
+
+  if (!fontsLoaded) {
+    return null;
+  } else {
+    SplashScreen.hideAsync()
+  }
+
   const deleteContacts = (contactID) => {
     setPeople(
       people.filter((item) => {
@@ -41,10 +59,12 @@ export default function App() {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.mainContainer}>
           <Header />
+          <Text style={{fontFamily: "Quicksand"}}>TESTING ANOTHER FONT</Text>
+          <Text style={{fontFamily: "Quicksand"}}>TESTING ANOTHER FONT</Text>
           <View style={styles.contentContainer}>
             <Form addPerson={addPerson}/>
             <View style={styles.peopleContainer}>
-              <FlatList 
+              <FlatList
                 keyExtractor={(item) => item.id}
                 data={people}
                 renderItem={({item}) =>
@@ -60,6 +80,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   mainContainer: {
+    fontFamily: "regular",
     flex: 1,
     backgroundColor: '#fff',
   },
@@ -71,4 +92,6 @@ const styles = StyleSheet.create({
     flex: 1,
   }
 });
+
+
 
