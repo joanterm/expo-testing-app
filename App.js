@@ -5,6 +5,7 @@ import * as SplashScreen from 'expo-splash-screen'
 import Home from "./components/Home"
 import Header from './components/Header'
 import ContactsContainer from './components/ContactsContainer'
+import ContactsDetails from './components/ContactsDetails'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
@@ -39,6 +40,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="ContactsContainer" component={ContactsContainer} />
+        <Stack.Screen name="ContactsDetails" component={ContactsDetails} />
       </Stack.Navigator>
       </View>
     </TouchableWithoutFeedback>

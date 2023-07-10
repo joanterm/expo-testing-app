@@ -1,16 +1,16 @@
 import { useState } from 'react'
-import { StyleSheet, Button, Text, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native'
+import { StyleSheet, Button, Text, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native'
 import { globalStyles } from '../styles/globalStyles'
 import Form from './Form'
 import Contacts from './Contacts'
 
-const ContactsContainer = () => {
+const ContactsContainer = ({navigation}) => {
     const [people, setPeople] = useState([
-        {"id": 1, "name": "Joanna", "phoneNumber": "(111)-111-1111"},
-        {"id": 2, "name": "Dustin", "phoneNumber": "(222)-222-2222"},
-        {"id": 3, "name": "Travis", "phoneNumber": "(333)-333-3333"},
-        {"id": 4, "name": "Monica", "phoneNumber": "(444)-444-4444"},
-        {"id": 5, "name": "Steve",  "phoneNumber": "(555)-555-5555"}   
+        {"id": 1, "name": "Joanna", "phoneNumber": "(111)-111-1111", "zipcode": "12121"},
+        {"id": 2, "name": "Dustin", "phoneNumber": "(222)-222-2222", "zipcode": "12122"},
+        {"id": 3, "name": "Travis", "phoneNumber": "(333)-333-3333", "zipcode": "12123"},
+        {"id": 4, "name": "Monica", "phoneNumber": "(444)-444-4444", "zipcode": "12124"},
+        {"id": 5, "name": "Steve",  "phoneNumber": "(555)-555-5555", "zipcode": "12125"}   
     ])
 
     const deleteContacts = (contactID) => {
@@ -47,7 +47,9 @@ const ContactsContainer = () => {
                     keyExtractor={(item) => item.id}
                     data={people}
                     renderItem={({item}) =>
+                        <TouchableOpacity onPress={() => navigation.navigate('ContactsDetails', {item: item})}>
                         <Contacts item={item} deleteContacts={deleteContacts}/>
+                        </TouchableOpacity>
                     }
                     />
                 </View>
