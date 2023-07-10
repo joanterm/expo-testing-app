@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { StyleSheet, Text, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native'
+import { StyleSheet, Button, Text, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import { globalStyles } from '../styles/globalStyles'
 import Form from './Form'
 import Contacts from './Contacts'
@@ -38,7 +38,8 @@ const ContactsContainer = () => {
 
     return ( 
         <View style={styles.testing}>
-            <Text style={globalStyles.textStyle}>TESTING</Text>
+            <Text style={globalStyles.textStyle}>CONTACTS CONTAINER</Text>
+            <Button title="Test"/>
             <View style={styles.contentContainer}>
                 <Form addPerson={addPerson}/>
                 <View style={styles.peopleContainer}>
@@ -58,6 +59,8 @@ const ContactsContainer = () => {
 const styles = StyleSheet.create({
     testing: {
         flex: 1,
+        borderColor: "red",
+        borderWidth: 2
     },
     contentContainer: {
       flex: 1,
