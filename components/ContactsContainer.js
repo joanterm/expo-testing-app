@@ -3,6 +3,7 @@ import { StyleSheet, Button, Text, View, FlatList, Alert, TouchableWithoutFeedba
 import { globalStyles } from '../styles/globalStyles'
 import Form from './Form'
 import Contacts from './Contacts'
+import ReusableCard from '../styles/ReusableCard'
 
 const ContactsContainer = ({navigation}) => {
     const [people, setPeople] = useState([
@@ -39,20 +40,21 @@ const ContactsContainer = ({navigation}) => {
     return ( 
         <View style={styles.testing}>
             <Text style={globalStyles.textStyle}>CONTACTS CONTAINER</Text>
-            <Button title="Test"/>
             <View style={styles.contentContainer}>
                 <Form addPerson={addPerson}/>
-                <View style={styles.peopleContainer}>
+                {/* <View style={styles.peopleContainer}> */}
                     <FlatList
                     keyExtractor={(item) => item.id}
                     data={people}
                     renderItem={({item}) =>
                         <TouchableOpacity onPress={() => navigation.navigate('ContactsDetails', {item: item})}>
-                        <Contacts item={item} deleteContacts={deleteContacts}/>
+                          {/* <ReusableCard> */}
+                          <Contacts item={item} deleteContacts={deleteContacts}/>
+                          {/* </ReusableCard> */}
                         </TouchableOpacity>
                     }
                     />
-                </View>
+                {/* </View> */}
             </View>
         </View>
      )
@@ -67,6 +69,8 @@ const styles = StyleSheet.create({
     contentContainer: {
       flex: 1,
       padding: 40,
+      borderWidth: 5,
+      borderColor: "black"
     },
     peopleContainer: {
       flex: 1,

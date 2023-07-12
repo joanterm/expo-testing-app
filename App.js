@@ -37,7 +37,7 @@ export default function App() {
           {/* <Header />
           <Home />
           <ContactsContainer /> */}
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{headerStyle: {backgroundColor: "pink"}}}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="ContactsContainer" component={ContactsContainer} />
         <Stack.Screen name="ContactsDetails" component={ContactsDetails} />

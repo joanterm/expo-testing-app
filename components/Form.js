@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native'
+import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity } from 'react-native'
 import { globalStyles } from "../styles/globalStyles"
 
 const Form = (props) => {
@@ -19,7 +19,7 @@ const Form = (props) => {
     console.log(formData)
     
     return ( 
-        <View>
+        <View style={styles.formContainer}>
             <Text style={globalStyles.textStyle}>FORM</Text>
             <TextInput
                 style={styles.input}
@@ -34,17 +34,25 @@ const Form = (props) => {
                 keyboardType="number-pad"
                 value={formData.phoneNumber}
             />
-            <Button title="ADD CONTACT" onPress={() => addPerson(formData)}/>
+            <TouchableOpacity style={globalStyles.buttonStyle} onPress={() => addPerson(formData)}>
+                <Text style={globalStyles.textStyle}>ADD CONTACT</Text>
+            </TouchableOpacity>
         </View>
      );
 }
 
 const styles = StyleSheet.create({
+    formContainer: {
+        marginHorizontal: 2,
+        marginVertical: 2
+    },
     input: {
         borderWidth: 1,
         borderStyle: "solid",
         borderColor: "gray",
         padding: 10,
+        borderRadius: 5,
+        marginBottom: 5
     }
 });
  
