@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity} from 'react-native'
 import { globalStyles } from '../styles/globalStyles'
 import { Image } from 'expo-image'
 
@@ -6,16 +6,18 @@ const Home = ({navigation}) => {
     return ( 
         <View style={styles.homeContainer}>
             <Image 
-                style={styles.image} 
+                style={styles.homeImage} 
                 source={require("../assets/main-image.png")}
                 resizeMode="center"
             />
             <Text style={styles.textStyle}>Time to organize and store all your contacts in just one spot.</Text>
-            <TouchableOpacity style={globalStyles.buttonStyle} onPress={() => navigation.navigate('ContactsContainer')}>
+            <TouchableOpacity 
+                style={globalStyles.buttonStyle} 
+                onPress={() => navigation.navigate('ContactsContainer')}>
                 <Text style={globalStyles.textStyle}>Go to contacts</Text>
             </TouchableOpacity>
         </View>
-     );
+     )
 }
 
 const styles = StyleSheet.create({
@@ -24,7 +26,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "white"
     },
-    image: {
+    homeImage: {
         width: "100%",
         height: 300
     },
