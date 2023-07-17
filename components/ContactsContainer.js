@@ -1,9 +1,7 @@
 import { useState } from 'react'
-import { StyleSheet, Button, Text, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native'
-import { globalStyles } from '../styles/globalStyles'
+import { StyleSheet, View, FlatList, Alert, TouchableOpacity } from 'react-native'
 import Form from './Form'
 import Contacts from './Contacts'
-import ReusableCard from '../styles/ReusableCard'
 
 const ContactsContainer = ({navigation}) => {
     const [people, setPeople] = useState([
@@ -22,6 +20,7 @@ const ContactsContainer = ({navigation}) => {
       }
 
     const addPerson = (formValue) => {
+      //FORM'S "NAME" MUST BE LONGER THAN 2 CHARS AND CAN'T BE A NUMBER
         if (formValue.name.length >= 2 && isNaN(formValue.name)) {
           const newId = Math.random()
           setPeople([
@@ -38,39 +37,34 @@ const ContactsContainer = ({navigation}) => {
     }
 
     return ( 
-        <View style={styles.testing}>
-            <Text style={globalStyles.textStyle}>CONTACTS CONTAINER</Text>
-            <View style={styles.contentContainer}>
+        <View style={styles.mainContentContainer}>
+            <View style={styles.innerContentContainer}>
                 <Form addPerson={addPerson}/>
-                {/* <View style={styles.peopleContainer}> */}
                     <FlatList
-                    keyExtractor={(item) => item.id}
-                    data={people}
-                    renderItem={({item}) =>
-                        <TouchableOpacity onPress={() => navigation.navigate('ContactsDetails', {item: item})}>
-                          {/* <ReusableCard> */}
-                          <Contacts item={item} deleteContacts={deleteContacts}/>
-                          {/* </ReusableCard> */}
-                        </TouchableOpacity>
-                    }
+                      keyExtractor={(item) => item.id}
+                      data={people}
+                      renderItem={({item}) =>
+                          <TouchableOpacity onPress={() => navigation.navigate('ContactsDetails', {item: item})}>
+                            <Contacts 
+                              item={item} 
+                              deleteContacts={deleteContacts}
+                            />
+                          </TouchableOpacity>
+                      }
                     />
-                {/* </View> */}
             </View>
         </View>
      )
 }
 
 const styles = StyleSheet.create({
-    testing: {
+    mainContentContainer: {
         flex: 1,
-        borderColor: "red",
-        borderWidth: 2
+        backgroundColor: "#ffff"
     },
-    contentContainer: {
+    innerContentContainer: {
       flex: 1,
       padding: 40,
-      borderWidth: 5,
-      borderColor: "black"
     },
     peopleContainer: {
       flex: 1,

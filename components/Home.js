@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     homeContainer: {
         padding: 40,
         flex: 1,
-        backgroundColor: "white"
+        backgroundColor: "#ffff"
     },
     homeImage: {
         width: "100%",

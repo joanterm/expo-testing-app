@@ -12,24 +12,22 @@ const ReusableCard = (props) => {
 
 const styles = StyleSheet.create({
     outerCard: {
-        // borderWidth: 2,
-        // borderColor: "blue",
-        // backgroundColor: "blue"
-        backgroundColor: "#92FBEB",
+        backgroundColor: "#ffff",
         marginVertical: 15,
         marginHorizontal: 2,
         marginHorizontal: 2,
         borderRadius: 5,
         elevation: 5,
-        shadowColor: "red"
+        shadowColor: "#212121",
     },
     innerCard: {
-        // backgroundColor: "yellow",
-        // marginBottom: 10,
-        // padding: 5,
         marginHorizontal: 10,
         marginVertical: 10,
-        backgroundColor: "pink"
+        paddingVertical: 10,
+        backgroundColor: "#ffff",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between"
     }
 })
  

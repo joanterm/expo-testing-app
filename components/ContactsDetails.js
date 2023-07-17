@@ -2,17 +2,17 @@ import { StyleSheet, Button, Text, View, FlatList, Alert, TouchableWithoutFeedba
 import ReusableCard from '../styles/ReusableCard'
 import { globalStyles } from '../styles/globalStyles'
 
-const ContactsDetails = ({navigation, route}) => {
+const ContactsDetails = ({route}) => {
     const { item } = route.params
-    console.log(item)
-    
+
     return ( 
         <View style={styles.detailsContainer}>
-            <Text>CONTACTS DETAILS</Text>
             <ReusableCard>
-                <Text style={globalStyles.textStyle}>{item.name}</Text>
-                <Text style={globalStyles.textStyle}>{item.phoneNumber}</Text>
-                <Text style={globalStyles.textStyle}>{item.zipcode}</Text>
+                <View>
+                    <Text style={globalStyles.textStyle}>Name: {item.name}</Text>
+                    <Text style={globalStyles.textStyle}>Phone: {item.phoneNumber}</Text>
+                    <Text style={globalStyles.textStyle}>Zip-code: {item.zipcode ? item.zipcode : "Sorry, no zip code provided"}</Text>
+                </View>
             </ReusableCard>
         </View>
      )
@@ -20,7 +20,9 @@ const ContactsDetails = ({navigation, route}) => {
 
 const styles = StyleSheet.create({
     detailsContainer: {
-        padding: 40
+        flex: 1,
+        padding: 40,
+        backgroundColor: "#ffff"
     }
 })
  

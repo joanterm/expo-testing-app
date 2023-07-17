@@ -2,8 +2,7 @@ import { useState } from 'react'
 import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity } from 'react-native'
 import { globalStyles } from "../styles/globalStyles"
 
-const Form = (props) => {
-    const {addPerson} = props
+const Form = ({addPerson}) => {
 
     const [formData, setFormData] = useState({
         name: "",
@@ -16,11 +15,9 @@ const Form = (props) => {
             [name]: value
         })
     }
-    console.log(formData)
     
     return ( 
         <View style={styles.formContainer}>
-            <Text style={globalStyles.textStyle}>FORM</Text>
             <TextInput
                 style={styles.input}
                 placeholder="Name"

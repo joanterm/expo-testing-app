@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard } from 'react-native'
+import { useEffect} from 'react'
+import { StyleSheet, View, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 import Home from "./components/Home"
