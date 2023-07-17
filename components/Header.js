@@ -4,13 +4,14 @@ const Header = () => {
     return ( 
         <View style={styles.header}>
             <Text>HEADER</Text>
+            <Text>HEADER</Text>
         </View>
      );
 }
 
 const styles = StyleSheet.create({
     header: {
-      backgroundColor: 'pink',
+      backgroundColor: '#92FBEB',
       height: 100,
       paddingTop: 50
     }

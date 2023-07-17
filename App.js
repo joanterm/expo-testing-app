@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard } from 'reac
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 import Home from "./components/Home"
-import Header from './components/Header'
 import ContactsContainer from './components/ContactsContainer'
 import ContactsDetails from './components/ContactsDetails'
 import { NavigationContainer } from '@react-navigation/native'
@@ -30,14 +29,12 @@ export default function App() {
     SplashScreen.hideAsync()
   }
 
+  //SET UP STACK NAVIGATION + STYLE NAVIGATION HEADER
   return (
     <NavigationContainer>
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <View style={styles.mainContainer}>
-          {/* <Header />
-          <Home />
-          <ContactsContainer /> */}
-      <Stack.Navigator screenOptions={{headerStyle: {backgroundColor: "pink"}}}>
+      <View style={styles.applicationContainer}>
+      <Stack.Navigator screenOptions={{headerStyle: {backgroundColor: "#92FBEB"}}}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="ContactsContainer" component={ContactsContainer} />
         <Stack.Screen name="ContactsDetails" component={ContactsDetails} />
@@ -49,10 +46,10 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  mainContainer: {
+  applicationContainer: {
     flex: 1
   }
-});
+})
 
 
 

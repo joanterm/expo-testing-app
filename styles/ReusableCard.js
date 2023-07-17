@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         // borderWidth: 2,
         // borderColor: "blue",
         // backgroundColor: "blue"
-        backgroundColor: "#fff",
+        backgroundColor: "#92FBEB",
         marginVertical: 15,
         marginHorizontal: 2,
         marginHorizontal: 2,

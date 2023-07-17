@@ -6,13 +6,12 @@ export const globalStyles = StyleSheet.create({
         fontSize: 20
     },
     buttonStyle: {
-        backgroundColor: "pink",
-        borderWidth: 1,
-        borderStyle: "dashed",
-        borderColor: "gray",
-        padding: 5,
+        backgroundColor: "#92FBEB",
+        borderWidth: 2,
+        borderStyle: "solid",
+        borderColor: "#212121",
+        padding: 10,
         borderRadius: 5,
-        // textAlign: "center"
         alignItems: "center"
     },
     deleteButtonStyle: {
