@@ -2,12 +2,7 @@ import { useState } from 'react'
 import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity } from 'react-native'
 import { globalStyles } from "../styles/globalStyles"
 
-const Form = ({addPerson}) => {
-
-    const [formData, setFormData] = useState({
-        name: "",
-        phoneNumber: ""
-    })
+const Form = ({addPerson, formData, setFormData}) => {
 
     const handleChange = (name, value) => {
         setFormData({

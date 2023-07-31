@@ -11,6 +11,10 @@ const ContactsContainer = ({navigation}) => {
         {"id": 4, "name": "Monica", "phoneNumber": "(444)-444-4444", "zipcode": "12124"},
         {"id": 5, "name": "Steve",  "phoneNumber": "(555)-555-5555", "zipcode": "12125"}   
     ])
+    const [formData, setFormData] = useState({
+      name: "",
+      phoneNumber: ""
+  })
 
     const deleteContacts = (contactID) => {
         setPeople(
@@ -31,6 +35,10 @@ const ContactsContainer = ({navigation}) => {
             },
             ...people
           ])
+          setFormData({
+            name: "",
+            phoneNumber: ""
+          })
         } else {
           Alert.alert("Ooops!", "Enter a valid text that's longer than 2 characters.", [{text: "got it!", onPress: () => console.log("click")}]) 
         }
@@ -39,7 +47,7 @@ const ContactsContainer = ({navigation}) => {
     return ( 
         <View style={styles.mainContentContainer}>
             <View style={styles.innerContentContainer}>
-                <Form addPerson={addPerson}/>
+                <Form addPerson={addPerson} formData={formData} setFormData={setFormData}/>
                     <FlatList
                       keyExtractor={(item) => item.id}
                       data={people}
