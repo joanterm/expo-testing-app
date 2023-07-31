@@ -13,7 +13,7 @@ const Home = ({navigation}) => {
             <Modal visible={isModalOpen}>
                 <View style={styles.modalContainer}>
                     <Entypo name="circle-with-cross" style={styles.modalIcon} size={40} color="#92FBEB" onPress={() => setIsModalOpen(false)}/>
-                    <Text>MODAL TEXT HERES</Text>
+                    <Text>MODAL TEXT HERE</Text>
                 </View>
             </Modal>
             {/* MODAL ENDS */}
